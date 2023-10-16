@@ -1,0 +1,24 @@
+INSERT INTO grupos(Nombre,Clave) VALUES
+("Desarrollo de software Multiplataforma 41","DSM-41"),
+("Desarrollo de software Multiplataforma 42","DSM-42"),
+("Desarrollo de software Multiplataforma 43","DSM-43"),
+("Desarrollo de software Multiplataforma 44","DSM-44"),
+("Desarrollo de software Multiplataforma 45","DSM-45");
+
+INSERT INTO alumnos(Nombre_alumno,App,Apm,Fecha_de_nacimiento,Genero,Matricula,Direccion,Email,Contraseña,Foto,Id_grupo)VALUES
+("Kevin Emanuel","Hernandez","Contreras","2002-10-23","Masculino",222210554,"Metepec","al222210554@gmail.com","12345678910","Foto1.jpg",1),
+("Aldo","Colin","Garcia","2004-02-26","Masculino",222210655,"Otzolotepec","al22210655@gmail.com","1234567899","Foto2.jpg",2),
+("Hamblet Ariel","Aguilar","Barrera","2004-07-24","Masculino",222210613,"Lerma","al222210613@gmail.com","Contraseña1","Foto3.jpg",1),
+("Abraham","Alva","Romero","2004-12-02","Masculino",222210779,"Xonacatlan","al222210779@gmail.com","Contraseña2","Foto4.jpg",1),
+("Hugo","Apolinar","Antonio","2004-10-07","Masculino",222210546,"Xonacatlan","al222210546@gmail.com","Contraseña3","Foto5.jpg",1),
+("Estefani Michel","Camacho","Garcia","2001-10-26","Femenino",221910361,"Metepec","al221910361@gmail.com","Contraseña4","Foto6.jpg",1),
+("Jesus Eduardo","Cresencio","Silva","2004-02-02","Masculino",222210767,"Lerma","al222210767@gmail.com","Contraseña5","Foto7.jpg",1),
+("Alexis Yahir","Crisantos","De La Cruz","2003-10-15","Masculino",222210707,"Lerma","al222210707@gmail.com","Contraseña6","Foto8.jpg",1),
+("Emanuel","Cuestas","Uribe","2003-01-30","Masculino",222210660,"Xonacatlan","al222210660@gmail.com","Contraseña7","Foto9.jpg",1),
+("Lizbeth Adriana","De Jesus","Ballesteros","2001-09-15","Femenino",222210748,"Lerma","al222210748@gmail.com","Contraseña8","Foto10.jpg",1),
+("Ana Caren","Flores","Flores","2004-03-18","Femenino",222210702,"San Mateo","al222210702@gmail.com","Contraseña9","Foto11.jpg",1),
+("Aranza","Flores","Gonzales","2004-04-27","Femenino",222210705,"Santa Maria Atarasquillo","al@gmail.com","Contraseña10","Foto12.jpg",1),
+("Kevin Jael","Galindo","Mendoza","2003-11-12","Masculino",222210632,"Lerma","al222210632@gmail.com","Contraseña11","Foto13.jpg",1),
+("Karla","Garcia","Isidro","2004-08-06","Femenino",222210669,"Xonacatlan","al222210669@gmail.com","Contraseña12","Foto14.jpg",1),
+("Jared","Garcia","Lopez","2000-09-13","Masculino",222210534,"Metepec","al222210534@gmail.com","Contraseña13","Foto15.jpg",1),
+("Juan David","Gutierrez","Gutierrez","2004-03-24","Masculino",222210731,"Lerma","al222210731@gmail.com","Contraseña14","Foto16.jpg",1);
