@@ -38,6 +38,9 @@
                             <a class="nav-link " href="{{ route('lista_grup') }}">Grupos</a>
                         </li>
                         <li class="nav-item">
+                            <a class="nav-link " href="{{ route('union') }}">Tablas unificadas</a>
+                        </li>
+                        <li class="nav-item">
                             @if(session('session_id') !='')
                             <meta http-equiv="Refresh" content="0;URL={{ route('login') }}">
                             @else
@@ -122,7 +125,7 @@
         <div class="mb-3">
             <label for="floatingrupo" class="form-label">Grupo:</label>
             <select class="form-select form-select-lg" name="grupos" id="floatingrupo">
-                <option value="{{ $alumno->Id_grupo }}" selected>{{ $alumno->Id_grupo }}</option>
+                <option value="{{ $alumno->Id_grupo }}" selected>{{ $alumno->grupos->Nombre }}</option>
                 @foreach ($grupos as $grupo)
                     <option value="{{ $grupo['id'] }}">{{$grupo['Nombre']}}</option>
                 @endforeach

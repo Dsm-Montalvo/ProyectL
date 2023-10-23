@@ -34,6 +34,9 @@
                                 <a class="nav-link " href="{{ route('lista_grup') }}">Grupos</a>
                             </li>
                             <li class="nav-item">
+                                <a class="nav-link " href="{{ route('union') }}">Tablas unificadas</a>
+                            </li>
+                            <li class="nav-item">
                                 @if(session('session_id') !='')
                                 <meta http-equiv="Refresh" content="0;URL={{ route('login') }}">
                                 @else
@@ -67,7 +70,7 @@
             </tr>
             @foreach($alumnos as $alumno)
                 <tr>
-                    <td><img src="{{ asset('img/' .$alumno->Foto) }}" width="30px"></td>
+                    <td><img src="{{ asset('img/' .$alumno->Foto) }}" width="60px"></td>
                     <td>{{$alumno->id_alumno }}</td>
                     <td>{{$alumno->Matricula}}</td>
                     <td>{{$alumno->App."  ".$alumno->Apm . "  " . $alumno->Nombre_alumno }}</td>

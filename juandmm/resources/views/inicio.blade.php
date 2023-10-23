@@ -13,7 +13,7 @@
     <div class="container">
         <nav class="navbar navbar-dark bg-dark fixed-top">
             <div class="container-fluid">
-                <a class="navbar-brand" href="{{ route ('index') }}">
+                <a class="navbar-brand" href="{{ route ('inicio') }}">
                     <img src="{{ asset('img/logo_utvt.png') }}" alt="" width="50px" height="50px">
                     TSU-DSM-41
                 </a>
@@ -34,6 +34,9 @@
                             </li>
                             <li class="nav-item">
                                 <a class="nav-link " href="{{ route('lista_grup') }}">Grupos</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link " href="{{ route('union') }}">Tablas unificadas</a>
                             </li>
                             <li class="nav-item">
                                 @if(session('session_id') !='')

@@ -34,6 +34,9 @@
                                 <a class="nav-link active" href="{{ route('lista_grup') }}">Grupos</a>
                             </li>
                             <li class="nav-item">
+                                <a class="nav-link " href="{{ route('union') }}">Tablas unificadas</a>
+                            </li>
+                            <li class="nav-item">
                                 @if(session('session_id') !='')
                                 <meta http-equiv="Refresh" content="0;URL={{ route('login') }}">
                                 @else

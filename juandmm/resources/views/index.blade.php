@@ -55,6 +55,7 @@
             <img src="{{ asset('img/utvt.png') }}" width="600" height="500">
          </div>
          
+         
     </div>
 </body>
 </html>

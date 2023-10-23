@@ -23,4 +23,9 @@ class Alumnos extends Model
         'Foto',
         'Id_grupo',
     ];
+
+    public function grupos()
+    {
+        return $this->belongsTo(Grupos::class, 'Id_grupo','id');
+    }
 }

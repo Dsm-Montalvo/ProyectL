@@ -69,3 +69,6 @@ Route::name('borrar_grup')->get('/borrar_grup/{id_grup}',[ControllerSystem::clas
 //--------------------------------Inicio ----------------
 Route::name('borrar_grup')->get('/borrar_grup/{id_grup}',[ControllerSystem::class, 'borrar_grup']);
 Route::name('inicio')->get('/inicio',[ControllerSystem::class, 'inicio']);
+//-----------------------------------innerjoin---------------------------------
+
+Route::name('union')->get('/union',[ControllerSystem::class,'union']);

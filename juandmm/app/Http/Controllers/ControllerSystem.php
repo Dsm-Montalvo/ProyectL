@@ -26,6 +26,20 @@ class ControllerSystem extends Controller
         return view("login");
     }
 
+    public function union(){
+        // Relacion muchos(Alumnos) a uno(grupo) 
+        $alumnos = Alumnos::all(); 
+        /* Filtro para busqueda desde relacion uno(alumno) a muchos(grupos)
+        $alumnos=Grupos::find(2)->alumnos()->get(); */
+        /*  Filtros para busquedas 
+        $alumnos= Alumnos::where('Id_grupo',2)->get();
+        $alumnos= Alumnos::where('Id_grupo',1)->get();
+        otro ejemplo:
+        $alumnos = Alumnos::where('activo',1) 
+        ->orderBy('direccion', 'asc')->get();*/
+        return view('Innerjoin',['alumnos' => $alumnos]);
+    }
+    
     public function ingresar(Request $request){
 
         $this->validate($request,[

@@ -34,6 +34,9 @@
                                 <a class="nav-link " href="{{ route('lista_grup') }}">Grupos</a>
                             </li>
                             <li class="nav-item">
+                                <a class="nav-link " href="{{ route('union') }}">Tablas unificadas</a>
+                            </li>
+                            <li class="nav-item">
                                 @if(session('session_id') !='')
                                 <meta http-equiv="Refresh" content="0;URL={{ route('login') }}">
                                 @else
@@ -53,11 +56,14 @@
         <a href="{{ asset('img/'.$alumno->Foto) }}">
             <button type="button" class="btn btn-success">Archivo</button>
         </a><br>
-        {{ $alumno->id_alumno }} <br>
-        {{ $alumno->Matricula }} <br>
-        {{ $alumno->App . "  " . $alumno->Apm . "  " . $alumno->Nombre_alumno }} <br>
-        {{ $alumno->Fecha_de_nacimiento }} <br>
-        {{ $alumno->Email }} <br>
+        ID: {{ $alumno->id_alumno }} <br>
+        Matricula: {{ $alumno->Matricula }} <br>
+        Nombre Completo: {{ $alumno->App . "  " . $alumno->Apm . "  " . $alumno->Nombre_alumno }} <br>
+        Fecha de Nacimiento: {{ $alumno->Fecha_de_nacimiento }} <br>
+        Genero: {{ $alumno->Genero }}  <br>
+        Direccion: {{ $alumno->Direccion}} <br>
+        Correo Electronico: {{ $alumno->Email }} <br>
+        Grupo: {{ $alumno->grupos->Nombre }} <br>
         <br>
         <a href="{{ route('lista_alumnos') }}">
             <button type="button" class="btn btn-success">regresar</button>

@@ -15,4 +15,9 @@ class Grupos extends Model
         'Nombre',
         'Clave',
     ];
+/*  relacion uno a muchos
+    public function alumnos()
+    {
+        return $this->hasMany(Alumnos::class, 'Id_grupo','id');
+    } */
 }
