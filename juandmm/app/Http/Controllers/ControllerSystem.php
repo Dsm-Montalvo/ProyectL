@@ -83,9 +83,11 @@ class ControllerSystem extends Controller
     //logica:Alta Alumno
 
     public function alta(){
-        return view("Alumno.vistaalumno");
+        $grupos= Grupos::all();   
+        return view("Alumno.vistaalumno", compact('grupos'));
     }
 
+    
     public function registrar (Request $request){
 
         $this->validate($request,[
@@ -117,7 +119,7 @@ class ControllerSystem extends Controller
         else{
             $img2 = "logo_utvt.png";
         }
-        //
+        // 
         Alumnos::create(array(
             'Nombre_alumno' => $request->input('nombre'),
             'App' => $request->input('app'),
@@ -129,7 +131,7 @@ class ControllerSystem extends Controller
             'Foto' => $img2,
             'Email' => $request->input('email'),
             'Contraseña' => $request->input('pass'),
-            
+            'Id_grupo'=> $request->input('grupos'),
         ));
 
         return redirect()->route('lista_alumnos');
@@ -137,9 +139,11 @@ class ControllerSystem extends Controller
     }
     //------------------------------------------------editar------------------------------------------------------------------------------
 
+
     public function editar($id){
         $query = Alumnos::find($id);
-        return view("Alumno.editar_alumnos")
+        $grupos = Grupos::all();
+        return view("Alumno.editar_alumnos", compact('grupos'))
             ->with(['alumno' => $query]);
     }
 
@@ -174,6 +178,7 @@ class ControllerSystem extends Controller
             $query -> Foto = $img2;
             $query -> Email = $request -> email;
             $query -> Contraseña = $request -> pass;
+            $query -> Id_grupo = $request -> grupos;
         
         $query -> save();
         
@@ -184,6 +189,8 @@ class ControllerSystem extends Controller
         $id->delete();
         return redirect()->route('lista_alumnos');
     }
+
+
  //-------------------------------------------- logica de Grupos------------------------------------------
         //---------------LOGICA : LISTA DE Grupos---------------------
         public function lista_grup(){

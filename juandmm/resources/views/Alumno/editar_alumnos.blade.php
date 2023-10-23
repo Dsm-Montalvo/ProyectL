@@ -115,8 +115,19 @@
     </div>
     <div class=form-floating mb-3>
         <input type="password" class="form-control" name="pass" value="{{ $alumno->Contraseña }}" id="floatingpass" placeholder="ejemplo: ******" aria-describedby="passHelp">
-        <label for="floatingemail">Contraseña:</label>
+        <label for="floatingppass">Contraseña:</label>
         <div id="passHelp" class="form-text">Coloque su contraseña</div>
+    </div>
+    <div class=form-floating mb-3>
+        <div class="mb-3">
+            <label for="floatingrupo" class="form-label">Grupo:</label>
+            <select class="form-select form-select-lg" name="grupos" id="floatingrupo">
+                <option value="{{ $alumno->Id_grupo }}" selected>{{ $alumno->Id_grupo }}</option>
+                @foreach ($grupos as $grupo)
+                    <option value="{{ $grupo['id'] }}">{{$grupo['Nombre']}}</option>
+                @endforeach
+            </select>
+        </div>
     </div>
     <div class=form-floating mb-3> 
         <input class="form-control" type="file" name="foto1" id="floatingfoto" placeholder="...." aria-describedby="fotoHelp">

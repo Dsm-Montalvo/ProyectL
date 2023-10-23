@@ -68,7 +68,7 @@
     </div>
     <div class=form-floating mb-3>
         <input class="form-control" type="input" name="apm" value="{{ old('apm') }}" id="floatingApm" placeholder="Ejemplo: Montalvo" aria-describedby="ApmHelp">
-        <label for="floatingApm">Apellido_Materno:</label>
+        <label for="floatingApm">Apellido Materno:</label>
         <div id="ApmHelp" class="form-text">coloque su apellido Materno</div>
     </div>
     <div class=form-floating mb-3>
@@ -109,9 +109,22 @@
     </div>
     <div class=form-floating mb-3>
         <input type="password" class="form-control" name="pass" id="floatingpass" placeholder="ejemplo: ******" aria-describedby="passHelp">
-        <label for="floatingemail">Contraseña:</label>
+        <label for="floatingpass">Contraseña:</label>
         <div id="passHelp" class="form-text">Coloque su contraseña</div>
     </div>
+    <br>
+    <div class=form-floating mb-3>
+        <div class="mb-3">
+            <label for="floatingrupo" class="form-label">Grupo:</label>
+            <select class="form-select form-select-lg" name="grupos" id="floatingrupo">
+                <option value="">Elige tu grupo</option>
+                @foreach ($grupos as $grupo)
+                    <option value="{{ $grupo['id'] }}">{{$grupo['Nombre']}}</option>
+                @endforeach
+            </select>
+        </div>
+    </div>
+    <br>
     <div class=form-floating mb-3> 
         <input class="form-control" type="file" name="foto" id="floatingfoto" placeholder="...." aria-describedby="fotoHelp">
         <label for="floatingfoto">Foto de Perfil:</label>
