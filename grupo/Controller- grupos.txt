@@ -1,0 +1,59 @@
+ //-------------------------------------------- logica de Grupos------------------------------------------
+        //---------------LOGICA : LISTA DE Grupos---------------------
+        public function lista_grup(){
+            $query = tb_grupos::all();
+            return view('lista_grupo')
+                ->with(['grupos' => $query]);
+        }
+
+        //---------------LOGICA : DETALLE DE GRUPOS---------------------
+    public function detalle_grup($id_grup){
+        $query = tb_grupos::find($id_grup);
+        return view('detalle_grupo')
+         ->with(['grupo'=>$query]);
+    }
+
+  //------------------- Logica: ALTA DE GRUPOS-------------
+    public function alta_grup(){
+        return view("alta_grupo");
+    }
+
+    public function registrar_grup(Request $request){
+        
+        $this->validate($request,[
+            'clave'=>'required',
+            'nombre'=>'required',
+        ]);
+
+
+        //tb_grupo::create($request->only('clave,'nombre'));
+        
+        tb_grupos::create(array(
+            'clave'=>$request->input('clave'),
+            'nombre'=>$request->input('nombre'),
+        ));
+        return redirect()->route('lista_grup');
+    }
+
+    //-----------------------Logica: EDITAR DE GRUPO------------------
+        public function editar_grup($id_grup){
+            $query = tb_grupos::find($id_grup);
+            return view("editar_grupo")
+                ->with(['grupo' =>$query]);
+        }
+
+        public function salvar_grup(tb_grupos $id_grup, Request $request){
+            
+        $query = tb_grupos::find($id_grup->id_grupo);
+            $query -> clave = $request -> clave;
+            $query -> nombre = $request -> nombre;
+        $query -> save();
+
+        return redirect()->route("editar_grupo", ['id_grup' => $id_grup->id_grupo]);
+        }
+
+        public function borrar_grup(tb_grupos $id_grup){
+            $id_grup->delete();
+            return redirect()->route('lista_grup');
+        } 
+

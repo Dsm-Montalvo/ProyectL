@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TIC-DSM-41 2023</title>
+    <link rel="stylesheet" href="{{ asset('css/bootstrap.min.css') }}" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+    <script src="{{ asset('js/bootstrap.bundle.min.js')}}" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/O0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
+</head>
+<body>
+    <div class="container">
+        <h1>Grupos de la UTVT</h1>
+        <hr><hr><hr>
+        
+        {{$grupo->id_grupo}} <br>
+        {{$grupo->clave}} <br>
+        {{$grupo->nombre}} <br>
+        <br>
+        <a href="{{route('lista_grup') }}">
+            <button type="button" class="btn btn-success">Regresar</button>
+        </a>
+
+    </div>
+</body>
+</html>

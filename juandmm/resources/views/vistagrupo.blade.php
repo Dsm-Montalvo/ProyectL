@@ -17,6 +17,7 @@
                 <div class="col-6">
                     <label class="form-label" for="">Nombre del grupo:</label>
                     <input class="form-control" type="text" name="nombreg" id="">
+                    <div id="MatriculaHelp" class="form-text">@if($errors->first('clave')) <i>{{$errors->first('clave')}}</i>@endif</div>
                 </div>
 
                 <div class="col-6">

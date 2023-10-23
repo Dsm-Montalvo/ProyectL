@@ -5,11 +5,16 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use Auth;
 use App\Models\Alumnos;
+use App\Models\Grupos;
 
 class ControllerSystem extends Controller
 {
     public function perfil(){
         return view('perfil2');
+    }
+
+    public function inicio(){
+        return view('inicio');
     }
 
     //logica : index
@@ -36,7 +41,7 @@ class ControllerSystem extends Controller
             ->get();
 
         if(count($query)==0){
-            return redirect()->route('lista_alumnos');
+            return redirect()->route('inicio');
         }
         else {
             //variables de session: Crear
@@ -44,10 +49,10 @@ class ControllerSystem extends Controller
             $request->session()->put('session_name',$query[0]->nombre);
 
             //variables de session: Consultar
-            $session_id =$request->session()->get('session_id');
+            $session_id = $request->session()->get('session_id');
             $session_name = $request->session()->get('session_name');
 
-            return redirect()->route('/lista');
+            return redirect()->route('inicio');
         }
 
     }
@@ -63,22 +68,22 @@ class ControllerSystem extends Controller
 
     //logica:lista de alumnos
     public function lista(){
-        $query = Alumnos::all();
-        return view('lista')
+        $query = Alumnos::all(); 
+        return view('Alumno.lista')
             ->with(['alumnos' =>$query]);
     }
 
     //logica:detalle Alumno
     public function detalle($id){
         $query= Alumnos::find($id);
-        return view('detalle')
+        return view('Alumno.detalle')
         ->with (['alumno'=> $query]);
     }
 
     //logica:Alta Alumno
 
     public function alta(){
-        return view("vistaalumno");
+        return view("Alumno.vistaalumno");
     }
 
     public function registrar (Request $request){
@@ -134,7 +139,7 @@ class ControllerSystem extends Controller
 
     public function editar($id){
         $query = Alumnos::find($id);
-        return view("editar_alumnos")
+        return view("Alumno.editar_alumnos")
             ->with(['alumno' => $query]);
     }
 
@@ -179,5 +184,63 @@ class ControllerSystem extends Controller
         $id->delete();
         return redirect()->route('lista_alumnos');
     }
+ //-------------------------------------------- logica de Grupos------------------------------------------
+        //---------------LOGICA : LISTA DE Grupos---------------------
+        public function lista_grup(){
+            $query = Grupos::all();
+            return view('Grupos.lista_grupo')
+                ->with(['grupos' => $query]);
+        }
+
+        //---------------LOGICA : DETALLE DE GRUPOS---------------------
+    public function detalle_grup($id){
+        $query = Grupos::find($id);
+        return view('Grupos.detalle_grupo')
+         ->with(['grupo'=>$query]);
+    }
+
+  //------------------- Logica: ALTA DE GRUPOS-------------
+    public function alta_grup(){
+        return view("Grupos.alta_grupo");
+    }
+
+    public function registrar_grup(Request $request){
+        
+        $this->validate($request,[
+            'clave'=>'required',
+            'nombre'=>'required',
+        ]);
+
+
+        //tb_grupo::create($request->only('clave,'nombre'));
+        
+        Grupos::create(array(
+            'Clave'=>$request->input('clave'),
+            'Nombre'=>$request->input('nombre'),
+        ));
+        return redirect()->route('lista_grup');
+    }
+
+    //-----------------------Logica: EDITAR DE GRUPO------------------
+        public function editar_grup($id_grup){
+            $query = Grupos::find($id_grup);
+            return view("Grupos.editar_grupo")
+                ->with(['grupo' =>$query]);
+        }
+
+        public function salvar_grup(Grupos $id_grup, Request $request){
+            
+        $query = Grupos::find($id_grup->id);
+            $query -> Clave = $request -> clave;
+            $query -> Nombre = $request -> nombre;
+        $query -> save();
+
+        return redirect()->route('lista_grup');
+        }
+
+        public function borrar_grup(Grupos $id_grup){
+            $id_grup->delete();
+            return redirect()->route('lista_grup');
+        } 
 
 }

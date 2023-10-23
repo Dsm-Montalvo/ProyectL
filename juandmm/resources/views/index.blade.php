@@ -8,11 +8,11 @@
     <script src="{{ asset('js/bootstrap.bundle.min.js') }}" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
     <style>
         body{
-            background: #FFF url("{{ asset('img/tic2.jpg') }}") ;
+            background: #ffffff url("{{ asset('img/tic2.jpg') }}") ;
             background-position: center;
   background-repeat: no-repeat;
   background-size: auto;
-        }
+        }   
     </style>
 </head>
 <body>
@@ -30,7 +30,7 @@
                 <div class="offcanvas offcanvas-end text-bg-dark" tabindex="-1" id="offcanvasDarkNavbar" aria-labelledby="offcanvasDarkNavbarLabel">
                     <div class="offcanvas-header">
                         <h5 class="offcanvas-title" id="offcanvasDarkNavbarLabel">Menu</h5>
-                        <button type="button" class="btn-close btn-close-white" data-bs-dismiss="offcanvas" aria-label="lose"></button>
+                        <button type="button" class="btn-close btn-close-white" data-bs-dismiss="offcanvas" aria-label="Close"></button>
                     </div>
                     <div class="offcanvas-body">
                         <ul class="navbar-nav justify-content-end flex-grow-1 pe-3">
